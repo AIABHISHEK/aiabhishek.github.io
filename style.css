@@ -607,7 +607,7 @@ footer nav{
    margin: 0px 30px;
     text-align: center;
     padding-top:5px;
-    color: aliceblue;
+    /* color: aliceblue; */
 }
 
 .menu-button a:hover {
