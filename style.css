@@ -3,6 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Rubik+Microbe&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Baumans&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600&display=swap');
 /* font-family: 'Roboto Slab',
 serif;
 font-family: 'Rubik Microbe',
@@ -11,6 +15,10 @@ cursive;
 font-family: 'Baumans',
 cursive;
 */
+
+/* font-family: 'EB Garamond', serif; */
+
+/* font-family: 'Chakra Petch', sans-serif; */
 body{
             margin: 0px;
             padding: 0px;
@@ -58,6 +66,16 @@ body::-webkit-scrollbar-thumb {
     padding: 0px;
     box-sizing: border-box;
 }
+
+#tsparticles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #0d47a1;
+}
+
+
+
 .header-button{
   display: flex;
   justify-content: space-between;
@@ -104,24 +122,7 @@ margin: 50px 20px;
     /* margin: 10px; */
     /* border: 1px solid red; */
     margin: auto;
-}
-.spline{
-  margin: auto;
-  width: 98%;
-  display: flex;
-    /* flex-wrap: wrap; */
-    justify-content: center;
-    align-items: center;
     
-    margin-top: 50px;
-    height: 70vh;
-    /* border: 1px solid red; */
-}
-spline-viewer{
-  /* align-items: center; */
-  /* margin: 50px; */
-  width: 100%;
-  height: 100%;
 }
 
 
@@ -147,6 +148,9 @@ spline-viewer{
  color: rgb(237, 190, 190);
 }
 #info-id{
+  font-family: 'EB Garamond', serif;
+  font-family: 'Chakra Petch', sans-serif;
+
   padding: 20px 0;
     color: #f5f0f0;
     /* border: 1px solid red; */
@@ -157,9 +161,10 @@ spline-viewer{
     min-width: 60%;
     max-width: 98%;
     margin-top: 100px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     text-align: center;
     box-shadow: rgb(73, 150, 218) 3px 3px 6px 0px inset, rgba(239, 80, 80, 0.5) -3px -3px 6px 1px inset;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 #info-id div h3{
   color: #00fffc;
@@ -335,7 +340,7 @@ li {
     color: #f5f0f0;
     border-radius: 12px;
     /* flex-wrap: wrap; */
-    box-shadow: rgba(255, 255, 255, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    /* box-shadow: rgba(255, 255, 255, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; */
   }
   .time-content .time{
     display: flex;
