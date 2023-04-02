@@ -499,6 +499,12 @@ li {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .card-container .card .face.face1 .cpp {
+    background-color: #eb1212;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
    .card-container .card .face.face2 {
     transition: 0.5s;
   }
@@ -550,6 +556,15 @@ li {
     background-repeat: no-repeat;
     border-radius: 15px;
     background-image: url("assets/icons/gamecontroller.jpg");
+    background-repeat: no-repeat;
+    background-size: 600px 400px;
+  }
+
+  .card-container .card:nth-child(6) .face.face2 {
+    background-image: linear-gradient(40deg, #00fffc 0%, #fc00ff 45%, #fffc00 100%);
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    /* background-image: url("assets/icons/gamecontroller.jpg"); */
     background-repeat: no-repeat;
     background-size: 600px 400px;
   }
