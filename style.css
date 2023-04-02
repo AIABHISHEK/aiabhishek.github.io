@@ -500,7 +500,7 @@ li {
     -webkit-text-fill-color: transparent;
   }
 
-  .card-container .card .face.face1 .content .cpp {
+  .card-container .card .face.face1 .cpp {
     background-color: #eb1212;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
