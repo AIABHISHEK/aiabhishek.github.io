@@ -93,6 +93,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 8px;
 }
 .header-button #download a{
+  color: #000000;
   display: block;
   width: 100%;
   height: auto;
