@@ -139,11 +139,11 @@ body::-webkit-scrollbar-thumb {
 .image1 {
   /* border: 1px solid red; */
   display: flex;
-  width: 320px;
+  width: 450px;
   display: flex;
   justify-content: center;
   margin-top: 50px;
-  margin-right: 220px;
+  margin-right: 100px;
 }
 
 .image1 img {
