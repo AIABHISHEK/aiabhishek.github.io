@@ -12,7 +12,9 @@
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <!-- <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css"> -->
 
-        <link rel="stylesheet" href="https://res.cloudinary.com/veseylab/raw/upload/v1597754760/magicmouse/magic-mouse-1.0.css" />
+        <link rel="stylesheet" href="https://res.cloudinary.com/veseylab/raw/upload/v1597754760/magicmouse/magic-mouse-1.0.css" /> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/TextPlugin.min.js"></script>
 
     </head>
 
@@ -60,13 +62,13 @@
         </header>
 
         <div data-aos="fade-down" data-aos-duration="2500" id="about-me">
-            <div id="My-name">
-                <h3>Hi,</h3>
+            <div id="My-name" class="my-name">
+                <h3 class="my-name-list">Hi,</h3>
                 <!-- <h2>I am Abhishek</h2> -->
-                <p>
-                <h2>I am Abhishek</h2>
-                </p>
-                <p>Backend Developer,<br> Game Developer</p>
+                <!-- <p class="my-name-list"> -->
+                <h2 class="my-name-list">I am Abhishek</h2>
+                <!-- </p> -->
+            <p class="my-name-list">Backend Developer,<br> Game Developer</p>
 
             </div>
             <div class="image1">
@@ -336,6 +338,14 @@
                 console.log(err);
             }
         }
+     gsap.registerPlugin(TextPlugin)
+        gsap.from(".my-name-list", {
+                duration: 3,
+                text:"",
+                delay:1,
+                ease: "back",
+                stagger:1
+            });
     </script>
 
 
