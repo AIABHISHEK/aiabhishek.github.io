@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 
+
 const AboutSection = () => (
   <section id="about" className="py-24 px-6">
     <div className="container mx-auto max-w-4xl">
