@@ -36,10 +36,14 @@ jobs:
         env:
           BASE_URL: /
 
+      - name: Check dist folder
+        run: ls -la dist/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./dist"
+          path: "dist"
+          retention-days: 1
   
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
