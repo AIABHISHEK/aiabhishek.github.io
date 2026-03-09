@@ -51,7 +51,7 @@ export const projects: ProjectData[] = [
       "Configurable alert rules",
       "Price aggregation",
     ],
-    github: "#",
+    github: "link-sh",
     engineeringDecisions: [
       "Kafka streams for reliable price event processing with exactly-once semantics",
       "Redis pub/sub for low-latency WebSocket broadcast to connected clients",
