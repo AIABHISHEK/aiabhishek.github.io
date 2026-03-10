@@ -1,5 +1,6 @@
 import type { ProjectData } from "./types";
 import { linkShortenerConfig } from "../architecture-explorer/configs/link-shortener";
+import { telemetryIngestionConfig } from "../architecture-explorer/configs/telemetry-ingestion";
 
 export const projects: ProjectData[] = [
   {
@@ -18,8 +19,7 @@ export const projects: ProjectData[] = [
       "Click analytics pipeline",
       "Rate limiting",
     ],
-    github: "#",
-    demo: "#",
+    github: "https://github.com/AIABHISHEK/link-sh",
     architectureConfig: linkShortenerConfig,
     engineeringDecisions: [
       "Chose Fastify over Express for 2-3x better throughput on JSON serialization",
@@ -29,95 +29,96 @@ export const projects: ProjectData[] = [
       "Base62 encoding for short codes provides compact, URL-safe identifiers",
     ],
     challengesSolved: [
-      "Handling hash collisions at scale with retry + unique constraint fallback",
-      "Preventing cache stampede using distributed locking on cache misses",
       "Ensuring reliable analytics delivery with Kafka consumer groups and dead-letter queues",
       "Graceful handling of burst traffic via token-bucket rate limiting per IP",
+
     ],
   },
   {
-    id: "crypto-price-alerts",
-    name: "Real-time Crypto Price Alerts",
+    id: "telemetry-data-ingestion",
+    name: "Telemetry Data Ingestion Pipeline",
     description:
-      "Event-driven system for monitoring cryptocurrency prices and delivering real-time alerts via WebSocket and email.",
+      "Real-time telemetry ingestion system for EV chargers using MQTT with session correlation and analytics APIs.",
     overview:
-      "An event-driven alerting platform that aggregates cryptocurrency prices from multiple exchanges, evaluates user-defined alert rules in real time, and delivers notifications through WebSocket connections and email.",
+      "A real-time telemetry ingestion backend designed to process EV charger data streams from both vehicle DC and meter AC telemetry sources. The system correlates independent data streams into charging sessions and provides analytics APIs for performance metrics.",
     problem:
-      "Traders need real-time, low-latency price alerts with configurable thresholds, but most exchange APIs are rate-limited and inconsistent across providers.",
-    stack: ["Node.js", "Kafka", "Redis", "PostgreSQL", "WebSocket"],
+      "EV charger telemetry arrives as independent device streams (DC vehicle telemetry and AC meter telemetry). These streams must be correlated into charging sessions and processed in real time for analytics and operational insights.",
+    stack: ["TypeScript", "NestJS", "MQTT", "PostgreSQL", "Docker"],
     features: [
-      "Event-driven architecture",
-      "Real-time WebSocket streams",
-      "Configurable alert rules",
-      "Price aggregation",
+      "Real-time telemetry ingestion",
+      "Session-based event correlation",
+      "Analytics APIs for charging efficiency",
+      "Hot and cold data storage",
     ],
-    github: "link-sh",
+    github: "https://github.com/AIABHISHEK/data-ingestion-service",
+    architectureConfig: telemetryIngestionConfig,
     engineeringDecisions: [
-      "Kafka streams for reliable price event processing with exactly-once semantics",
-      "Redis pub/sub for low-latency WebSocket broadcast to connected clients",
-      "Rule engine evaluates user alerts against aggregated price snapshots",
+      "MQTT chosen for efficient lightweight telemetry messaging",
+      "Session-centric data model correlates DC vehicle and AC meter telemetry streams",
+      "Hot storage tables for active sessions and cold storage for historical analytics",
+      "Containerized services with Docker for reproducible deployments",
     ],
     challengesSolved: [
-      "Handling rate limits across multiple exchange APIs with adaptive backoff",
-      "Maintaining thousands of concurrent WebSocket connections efficiently",
-      "Deduplicating alerts during high-volatility price fluctuations",
+      "Correlating asynchronous telemetry streams into unified charging sessions",
+      "Handling high-frequency telemetry messages efficiently",
+      "Designing schema for both real-time queries and historical analytics",
     ],
   },
   {
-    id: "iot-dashcam-platform",
-    name: "IoT Dashcam Integration Platform",
+    id: "http-server-from-scratch",
+    name: "HTTP Server From Scratch",
     description:
-      "TCP-based ingestion service for IoT dashcam devices using JT808 protocol with real-time location tracking.",
+      "A lightweight HTTP/1.1 server implemented from scratch in Rust using raw TCP sockets.",
     overview:
-      "A backend platform for ingesting real-time GPS and video data from thousands of IoT dashcam devices using a custom binary protocol (JT808), with PostgreSQL + PostGIS for location storage and a React dashboard for fleet visualization.",
+      "A low-level HTTP server implementation built directly on top of TCP sockets in Rust. The server manually parses HTTP requests and constructs responses, demonstrating deep understanding of networking protocols and system programming.",
     problem:
-      "Ingest real-time GPS and video data from thousands of IoT dashcam devices using a custom binary protocol, with reliable connection management and device lifecycle tracking.",
-    stack: ["Node.js", "TCP/JT808", "PostgreSQL", "PostGIS", "Docker", "Flespi"],
+      "Most developers rely on frameworks without understanding the underlying HTTP protocol. This project explores how HTTP works internally by implementing a server from first principles.",
+    stack: ["Rust", "TCP", "HTTP/1.1"],
     features: [
-      "Custom protocol parsing",
-      "TCP connection management",
-      "Real-time GPS tracking",
-      "Device lifecycle management",
+      "Manual HTTP request parsing",
+      "Custom routing implementation",
+      "Response generation with correct status codes",
+      "Memory-safe concurrent request handling",
     ],
-    github: "#",
+    github: "https://github.com/AIABHISHEK/http-web-server-rust",
     engineeringDecisions: [
-      "Custom TCP server for parsing JT808 binary protocol frames",
-      "PostGIS extensions for efficient geospatial queries on location data",
-      "Migrated to Flespi MQTT broker for improved device connection reliability",
+      "Rust chosen for memory safety and zero-cost abstractions",
+      "Manual HTTP parsing to understand protocol structure",
+      "TCP socket implementation using Rust standard library",
+      "Ownership model ensures safe concurrency without data races",
     ],
     challengesSolved: [
-      "Parsing and validating complex binary protocol frames with checksums",
-      "Managing persistent TCP connections with heartbeat and reconnection logic",
-      "Handling device firmware variations in protocol implementation",
+      "Parsing HTTP headers and request lines from raw byte streams",
+      "Handling TCP packet",
+      "Designing routing logic without frameworks",
     ],
   },
   {
-    id: "job-tracker-saas",
+    id: "job-application-tracker",
     name: "Job Application Tracker SaaS",
     description:
-      "Full-stack SaaS platform for tracking job applications with Kanban boards, analytics, and resume management.",
+      "Full-stack SaaS platform for tracking job applications with AI-powered job extraction and browser integration.",
     overview:
-      "A multi-tenant SaaS application for job seekers to track applications through a Kanban-style board, with built-in analytics, resume management, and role-based access control.",
+      "A productivity SaaS platform that helps job seekers track their job applications. It includes a Chrome extension to capture job postings directly from websites and AI-powered extraction of job details from URLs.",
     problem:
-      "Job seekers lose track of applications across dozens of companies. Existing tools lack application analytics and are not designed for the engineering job search workflow.",
-    stack: ["Next.js", "PostgreSQL", "Redis", "TypeScript"],
+      "Job seekers often manage dozens of applications across different platforms. Tracking application status, job details, and follow-ups manually becomes difficult and disorganized.",
+    stack: ["Node.js", "React", "PostgreSQL", "AWS EC2"],
     features: [
-      "Multi-tenant architecture",
-      "RESTful API",
-      "Role-based access",
-      "Application analytics",
+      "Job application status tracking",
+      "AI-based job detail extraction",
+      "RESTful API backend",
+      "Chrome extension for saving job posts",
     ],
     github: "#",
-    demo: "#",
+    demo: "https://job.devploy.xyz/",
     engineeringDecisions: [
-      "Row-level security in PostgreSQL for multi-tenant data isolation",
-      "Redis for caching dashboard analytics and session management",
-      "Next.js API routes for a unified full-stack deployment",
+      "Node.js REST APIs handle application tracking and user authentication",
+      "AI extraction automates job detail parsing from URLs",
+      "Chrome extension integrates directly with job boards",
     ],
     challengesSolved: [
-      "Designing a flexible Kanban data model that supports custom pipeline stages",
-      "Implementing efficient full-text search across applications and notes",
-      "Building role-based access with invite-based team collaboration",
+      "Extracting structured job information from unstructured webpages",
+      "Designing scalable production-ready APIs for application tracking",
     ],
   },
 ];

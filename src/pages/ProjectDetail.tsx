@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Github, ExternalLink } from "lucide-react";
@@ -5,10 +6,43 @@ import { projects } from "@/components/projects/projectsData";
 import { ArchitectureExplorer } from "@/components/architecture-explorer";
 import SectionHeader from "@/components/SectionHeader";
 
-const ProjectDetail = () => {
+type ProjectDetailProps = {
+  isModal?: boolean;
+};
+
+const ProjectDetail = ({ isModal = false }: ProjectDetailProps) => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const project = projects.find((p) => p.id === id);
+  const goToProjects = () => {
+    if (isModal) {
+      navigate(-1);
+      return;
+    }
+
+    navigate("/#projects");
+  };
+
+  useEffect(() => {
+    if (!isModal) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        navigate(-1);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isModal, navigate]);
 
   if (!project) {
     return (
@@ -28,13 +62,13 @@ const ProjectDetail = () => {
     );
   }
 
-  return (
-    <div className="min-h-screen bg-background">
+  const content = (
+    <div className={isModal ? "min-h-full bg-background" : "min-h-screen bg-background"}>
       {/* Top bar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="container mx-auto max-w-6xl px-6 flex items-center h-14">
           <button
-            onClick={() => navigate("/#projects")}
+            onClick={goToProjects}
             className="flex items-center gap-2 text-sm font-mono text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft size={16} />
@@ -193,7 +227,7 @@ const ProjectDetail = () => {
       <div className="px-6 pb-16">
         <div className="container mx-auto max-w-6xl text-center">
           <button
-            onClick={() => navigate("/#projects")}
+            onClick={goToProjects}
             className="inline-flex items-center gap-2 text-sm font-mono text-primary hover:underline"
           >
             <ArrowLeft size={14} />
@@ -203,6 +237,16 @@ const ProjectDetail = () => {
       </div>
     </div>
   );
+
+  if (isModal) {
+    return (
+      <div className="fixed inset-0 z-[70] bg-background/75 backdrop-blur-sm">
+        <div className="h-full overflow-y-auto">{content}</div>
+      </div>
+    );
+  }
+
+  return content;
 };
 
 export default ProjectDetail;

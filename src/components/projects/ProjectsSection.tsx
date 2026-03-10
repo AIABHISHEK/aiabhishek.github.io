@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
 import { Github, ExternalLink, ArrowRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import SectionHeader from "../SectionHeader";
 import { projects } from "./projectsData";
 
 const ProjectsSection = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
-    <section id="projects" className="py-24 px-6">
+    <section id="projects" className="scroll-mt-20 py-24 px-6">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -80,7 +81,11 @@ const ProjectsSection = () => {
 
               <div className="mt-auto pt-4 border-t border-border">
                 <button
-                  onClick={() => navigate(`/project/${p.id}`)}
+                  onClick={() =>
+                    navigate(`/project/${p.id}`, {
+                      state: { backgroundLocation: location },
+                    })
+                  }
                   className="inline-flex items-center gap-2 text-sm font-mono text-primary hover:text-foreground transition-colors group"
                 >
                   <span>&gt; view_architecture</span>
