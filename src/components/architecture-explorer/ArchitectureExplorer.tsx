@@ -115,6 +115,7 @@ const ArchitectureExplorerInner = ({ config }: Props) => {
         <div className="grid lg:grid-cols-5 gap-6">
           <div className="lg:col-span-3 card-terminal p-0 overflow-hidden" style={{ height: 520 }}>
             <ReactFlow
+              className="architecture-flow"
               nodes={nodes}
               edges={edges}
               onNodeClick={onNodeClick}
@@ -129,8 +130,8 @@ const ArchitectureExplorerInner = ({ config }: Props) => {
             >
               <Background color="hsl(228 10% 15%)" gap={20} size={1} />
               <Controls
+                className="architecture-flow-controls"
                 showInteractive={false}
-                style={{ background: "hsl(228 15% 10%)", border: "1px solid hsl(228 10% 18%)", borderRadius: 8 }}
               />
             </ReactFlow>
           </div>

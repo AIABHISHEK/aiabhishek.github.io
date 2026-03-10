@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import TypingEffect from "./TypingEffect";
 
 const metrics = [
-  { label: "Projects Built", value: "12+" },
-  { label: "Technologies", value: "20+" },
-  { label: "Backend Systems", value: "8+" },
-  { label: "Years of Exp.", value: "3+" },
+  { label: "Projects Built", value: "10+" },
+  { label: "Technologies", value: "6+" },
+  { label: "Backend Systems", value: "5+" },
+  { label: "Years of Exp.", value: "1+" },
 ];
 
 const HeroSection = () => {

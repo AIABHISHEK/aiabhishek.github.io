@@ -103,6 +103,35 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  .architecture-flow {
+    --xy-controls-button-background-color: hsl(var(--card));
+    --xy-controls-button-background-color-hover: hsl(var(--surface-hover));
+    --xy-controls-button-color: hsl(var(--foreground));
+    --xy-controls-button-color-hover: hsl(var(--primary));
+    --xy-controls-button-border-color: hsl(var(--border));
+    --xy-controls-box-shadow: 0 0 0 1px hsl(var(--border)),
+      0 10px 24px hsl(228 30% 3% / 0.35);
+  }
+
+  .architecture-flow .react-flow__controls {
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .architecture-flow .react-flow__controls-button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .architecture-flow .react-flow__controls-button svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .architecture-flow .react-flow__controls-button svg path {
+    stroke: currentColor;
+  }
 }
 
 @layer utilities {
