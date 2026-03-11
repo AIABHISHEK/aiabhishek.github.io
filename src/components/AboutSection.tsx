@@ -35,6 +35,12 @@ const AboutSection = () => (
             <span className="text-secondary font-mono text-sm">Grafana</span> to ensure systems
             are transparent, measurable, and maintainable at scale.
           </p>
+          <p>
+            While my primary focus is backend systems, I also build modern frontend applications using{" "}
+            <span className="text-secondary font-mono text-sm">React</span>,{" "}
+            <span className="text-secondary font-mono text-sm">Next.js</span>,
+            allowing me to develop end-to-end products from infrastructure to user interface.
+          </p>
         </div>
       </motion.div>
     </div>

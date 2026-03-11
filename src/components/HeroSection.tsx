@@ -45,9 +45,8 @@ const HeroSection = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 2.3, duration: 0.5 }}
             >
-              Building scalable distributed systems, high-performance APIs, event-driven architectures,
-              and robust backend infrastructure. Passionate about system design, observability,
-              and engineering excellence.
+              I build scalable backend systems, real-time data pipelines, and observability-driven infrastructure.
+              Passionate about distributed systems, performance, and production-grade architectures.
             </motion.p>
 
             <motion.div
