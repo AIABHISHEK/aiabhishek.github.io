@@ -32,14 +32,16 @@ const ProjectsSection = () => {
               <div className="flex items-center justify-between mb-3">
                 <h3 className="font-semibold text-foreground">{p.name}</h3>
                 <div className="flex gap-2">
-                  <a
-                    href={p.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <Github size={16} />
-                  </a>
+                  {p.github && (
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      <Github size={16} />
+                    </a>
+                  )}
                   {p.demo && (
                     <a
                       href={p.demo}

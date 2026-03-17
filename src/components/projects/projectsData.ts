@@ -109,7 +109,7 @@ export const projects: ProjectData[] = [
       "RESTful API backend",
       "Chrome extension for saving job posts",
     ],
-    github: "#",
+    github: "",
     demo: "https://job.devploy.xyz/",
     engineeringDecisions: [
       "Node.js REST APIs handle application tracking and user authentication",

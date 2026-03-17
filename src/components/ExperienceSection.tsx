@@ -3,9 +3,9 @@ import SectionHeader from "./SectionHeader";
 
 const experiences = [
   {
-    role: "Backend Developer",
+    role: "Full-stack Developer",
     company: "Trikon.tech",
-    period: "2023 – Present",
+    period: "Jan 2025 - July 2025",
     points: [
       "Integrated IoT dashcam devices using JT808 protocol over TCP",
       "Built high-throughput TCP ingestion services for real-time GPS data",
@@ -15,9 +15,9 @@ const experiences = [
     ],
   },
   {
-    role: "Full Stack Developer Intern",
+    role: "Software Developer Intern",
     company: "Startup Studio",
-    period: "2022 – 2023",
+    period: "Jan 2024 - July 2024",
     points: [
       "Built RESTful APIs with Node.js and Express",
       "Designed PostgreSQL schemas for multi-tenant SaaS applications",

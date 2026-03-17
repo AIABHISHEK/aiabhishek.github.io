@@ -75,14 +75,16 @@ const ProjectDetail = ({ isModal = false }: ProjectDetailProps) => {
             <span>~/projects</span>
           </button>
           <div className="ml-auto flex items-center gap-3">
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Github size={16} />
-            </a>
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Github size={16} />
+              </a>
+            )}
             {project.demo && (
               <a
                 href={project.demo}
